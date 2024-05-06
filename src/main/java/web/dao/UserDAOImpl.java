@@ -1,4 +1,4 @@
 package web.dao;
 
-public class UserDAOImpl implements UserDAO{
+public class UserDAOImpl implements UserDAO {
 }
