@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Людишки</title>
 </head>
 <body>
-Тут уже есть табличка, остались методы
+<p>Таблица Users</p>
 <table border="6">
     <thead>
     <tr>
@@ -19,12 +18,15 @@
     <tbody>
     <tr th:each="user : ${userList}">
         <td th:text="${user.getId()}"></td>
-        <td th:text="${user.getName()}"></td>
+        <td>
+        <a th:href="@{/{id}(id=${user.getId()})}" th:text="${user.getName()}"></a>
+        </td>
         <td th:text="${user.getLastName()}"></td>
         <td th:text="${user.getAge()}"></td>
     </tr>
     </tbody>
 </table>
-<a href="add">Добавление юзера</a>
+<br>
+<a th:href="add">Добавление юзера</a>
 </body>
 </html>
