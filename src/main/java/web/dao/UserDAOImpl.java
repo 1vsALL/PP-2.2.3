@@ -25,12 +25,13 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public User userID(int id) {
+        User user = null;
         try {
-            return entityManager.find(User.class, id);
+            user = entityManager.find(User.class, id);
         } catch (EntityNotFoundException e) {
             e.printStackTrace();
         }
-        return null;
+        return user;
     }
 
     @Override
