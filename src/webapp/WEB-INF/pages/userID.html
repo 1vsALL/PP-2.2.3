@@ -15,7 +15,6 @@
 <b th:text="${userID.getAge()}" id="age"></b>
 <br>
 <a th:href="@{'edit?id='+ ${userID.getId()}}">Редактирование юзера</a>
-<!--<a th:href="@{edit/{id}(id=${userID.getId()})}">Редактирование юзера</a>-->
 <br>
 <a th:href="@{'remove?id='+ ${userID.getId()}}">Удалить юзера</a>
 </body>
