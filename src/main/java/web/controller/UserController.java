@@ -2,12 +2,14 @@ package web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import web.model.User;
 import web.service.UserService;
 
@@ -39,26 +41,26 @@ public class UserController {
         return "redirect:/";
     }
 
-    @GetMapping("/{id}")
-    public String userID(@PathVariable("id") int id, ModelMap modelMap) {
+    @GetMapping("/user")
+    public String userID(@RequestParam("id") int id, ModelMap modelMap) {
         modelMap.addAttribute("userID", userService.userID(id));
         return "userID";
     }
 
-    @GetMapping("/remove/{id}")
-    public String removeUser(@PathVariable("id") int id) {
+    @GetMapping("/remove")
+    public String removeUser(@RequestParam("id") int id) {
         userService.removeUserById(id);
         return "redirect:/";
     }
 
-    @GetMapping("/edit/{id}")
-    public String edit(@PathVariable("id") int id, ModelMap modelMap) {
+    @GetMapping("/edit")
+    public String edit(@RequestParam("id") int id, ModelMap modelMap) {
         modelMap.addAttribute("user", userService.userID(id));
         return "usersEdit";
     }
 
-    @PostMapping("/update/{id}")
-    public String update(@PathVariable("id") int id, @ModelAttribute("user") User user) {
+    @PostMapping("/update")
+    public String update(@RequestParam("id") int id, @ModelAttribute("user") User user) {
         userService.update(user, id);
         return "redirect:/";
     }
