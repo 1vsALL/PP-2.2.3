@@ -28,7 +28,6 @@ public class UserServiceImpl implements UserService {
         userDAO.addUser(user);
     }
 
-    @Transactional
     @Override
     public User userID(int id) {
         return userDAO.userID(id);
