@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Добавление</title>
+    <title>Добавление юзера</title>
 </head>
 <body>
 <form th:method="POST" th:action="@{/}" th:object="${user}">
@@ -16,13 +16,8 @@
     <label for="age">Введите возраст: </label>
     <input type="text" th:field="*{age}" id="age"/>
     </br>
+    </br>
     <input type="submit" value="Создание User">
 </form>
-
-<br>
-<br>
-<br>
-
-
 </body>
 </html>

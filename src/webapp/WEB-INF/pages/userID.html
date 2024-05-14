@@ -5,11 +5,17 @@
     <title>Человечишка</title>
 </head>
 <body>
-
-<p th:text="${userID.getName()}"></p>
+<label for="name">Имя: </label>
+<b th:text="${userID.getName()}" id="name"></b>
 <br>
-<a href="remove">Удаление юзера</a>
+<label for="lastName">Фамилия: </label>
+<b th:text="${userID.getLastName()}" id="lastName"></b>
 <br>
-<a href="update">Изменение юзера</a>
+<label for="age">Возраст: </label>
+<b th:text="${userID.getAge()}" id="age"></b>
+<br>
+<a th:href="@{edit/{id}(id=${userID.getId()})}">Редактирование юзера</a>
+<br>
+<a th:href="@{remove/{id}(id=${userID.getId()})}">Удалить юзера</a>
 </body>
 </html>

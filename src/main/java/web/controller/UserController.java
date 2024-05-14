@@ -45,4 +45,22 @@ public class UserController {
         return "userID";
     }
 
+    @GetMapping("/remove/{id}")
+    public String removeUser(@PathVariable("id") int id) {
+        userService.removeUserById(id);
+        return "redirect:/";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String edit(@PathVariable("id") int id, ModelMap modelMap) {
+        modelMap.addAttribute("user", userService.userID(id));
+        return "usersEdit";
+    }
+
+    @PostMapping("/update/{id}")
+    public String update(@PathVariable("id") int id, @ModelAttribute("user") User user) {
+        userService.update(user, id);
+        return "redirect:/";
+    }
+
 }

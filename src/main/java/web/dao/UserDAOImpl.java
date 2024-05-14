@@ -26,4 +26,17 @@ public class UserDAOImpl implements UserDAO {
     public User userID(int id) {
         return entityManager.find(User.class, id);
     }
+
+    @Override
+    public void removeUserById(int id) {
+        entityManager.remove(entityManager.find(User.class, id));
+    }
+
+    @Override
+    public void update(User user, int id) {
+        User updated = entityManager.find(User.class, id);
+        updated.setName(user.getName());
+        updated.setLastName(user.getLastName());
+        updated.setAge(user.getAge());
+    }
 }
